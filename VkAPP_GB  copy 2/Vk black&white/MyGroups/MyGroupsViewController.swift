@@ -1,0 +1,70 @@
+//
+//MyGroupsViewController.swift
+//  Vk black&white
+//  Created by Macbook on 08.12.2020.
+
+import UIKit
+
+class MyGroupsViewController: UITableViewController, UISearchBarDelegate {
+    
+    var groups = [Groups]()
+    
+    
+//Как в данном случае отобразить две группы, в которых я состою?
+//    var someOfMyGroups = [
+//        Groups(title: "GeekBrains", photo: UIImage(named: "Geeks")),
+//        Groups(title: "Google", photo: UIImage(named: "Google"))
+//    ] или же: 
+//    var someOfMyGroups = MyGroupsFactory.makeGroup()
+    override func viewWillAppear(_ animated: Bool) {
+        animateTable()
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        1
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return groups.count
+    }
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GroupCell", for: indexPath) as! MyGroupsCell
+        let group = groups[indexPath.row]
+        cell.groupName.text = group.title
+        cell.groupImage.image = group.photo
+        return cell
+    }
+    
+    @IBAction func addGroup(segue: UIStoryboardSegue) {
+        if segue.identifier == "AddGroup" { // проверка идентификатора перехода
+            let allGroupsTVC = segue.source as! NotMyGroupsViewController // контроллер, с которого переходим
+            if let indexPath = allGroupsTVC.tableView.indexPathForSelectedRow { // если indexPath = индекс выделенной ячейки
+                
+                if allGroupsTVC.searching {
+                    let gr = allGroupsTVC.filteredGroups[indexPath.row] // получить группу по индексу
+                    if !groups.contains(where: { g -> Bool in // проверка на наличие строки в избранном
+                        return gr.title == g.title}) {
+                        groups.append(gr)
+                        tableView.reloadData()
+                    }
+                } else {
+                    let group = allGroupsTVC.groups[indexPath.row]
+                    if !groups.contains(where: { g -> Bool in
+                        return group.title == g.title}) {
+                        groups.append(group)
+                        tableView.reloadData()
+                }
+            }
+        }
+    }
+}
+
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) { // изменение строки (удаление/ или вставка)
+        if editingStyle == .delete { // Если была нажата кнопка «Удалить»
+            groups.remove(at: indexPath.row) // Удаляем группу из массива
+            tableView.deleteRows(at: [indexPath], with: .fade) // удаляем строку из таблицы
+        }
+    }
+}
+
