@@ -13,6 +13,7 @@
 		FADD975125A2372800C30E9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADD974F25A2372800C30E9A /* Main.storyboard */; };
 		FADD975325A2372A00C30E9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FADD975225A2372A00C30E9A /* Assets.xcassets */; };
 		FADD975625A2372A00C30E9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FADD975425A2372A00C30E9A /* LaunchScreen.storyboard */; };
+		FADD975F25A23AB500C30E9A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FADD975E25A23AB500C30E9A /* SecondViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		FADD975225A2372A00C30E9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FADD975525A2372A00C30E9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FADD975725A2372A00C30E9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FADD975E25A23AB500C30E9A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				FADD975225A2372A00C30E9A /* Assets.xcassets */,
 				FADD975425A2372A00C30E9A /* LaunchScreen.storyboard */,
 				FADD975725A2372A00C30E9A /* Info.plist */,
+				FADD975E25A23AB500C30E9A /* SecondViewController.swift */,
 			);
 			path = PassDataProject;
 			sourceTree = "<group>";
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FADD975F25A23AB500C30E9A /* SecondViewController.swift in Sources */,
 				FADD974E25A2372800C30E9A /* ViewController.swift in Sources */,
 				FADD974A25A2372800C30E9A /* AppDelegate.swift in Sources */,
 				FADD974C25A2372800C30E9A /* SceneDelegate.swift in Sources */,
