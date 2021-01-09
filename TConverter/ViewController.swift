@@ -9,6 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var slider: UISlider! {
         didSet {
             slider.maximumValue = 100
